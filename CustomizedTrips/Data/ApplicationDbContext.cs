@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using CustomizedTrips.Models;
+using CustomizedTrips.Models.Traveler;
+using CustomizedTrips.Models.TravelAgents;
 
 namespace CustomizedTrips.Data
 {
@@ -22,5 +24,9 @@ namespace CustomizedTrips.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<CustomizedTrips.Models.Traveler.VacationRequest> VacationRequest { get; set; }
+
+        public DbSet<CustomizedTrips.Models.TravelAgents.TravelAgentInfo> TravelAgentInfo { get; set; }
     }
 }

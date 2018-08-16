@@ -2,4 +2,33 @@
     ViewData["Title"] = "Home Page";    
 }
 
-<h1>This is where the Intro Slide will be.</h1>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+
+    <style type="text/css">
+        .tangerine {
+            text-align: center;
+            font-family: 'Tangerine', cursive;
+            font-size: 100px;
+            color: whitesmoke;
+        } 
+
+        a {
+            text-decoration: none;
+        } 
+        
+        body {
+            background-image: url("../../wwwroot/images/HongKong.jpg");
+        }
+    </style>    
+</head>
+
+<body>
+    <div class="container col-lg-12" style="height: 100%">
+        <img src="~/images/CostaRicaRainForest.jpg" />
+    </div>
+    <div style="height: 25vw">
+
+    </div>
+    <a asp-controller="VacationForm" asp-action="Create"><h1 class="tangerine"><strong>ENTER</strong></h1></a>
+</body>
