@@ -12,8 +12,7 @@ namespace CustomizedTrips.Models.Traveler
         public int id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Destination { get; set; }
-        public string DestinationDescription { get; set; }
+        public string Destination { get; set; }        
         public double Budget { get; set; }
         public string DestinationDetails { get; set; }
         public int? PhoneNumber { get; set; }

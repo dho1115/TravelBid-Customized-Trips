@@ -54,7 +54,7 @@ namespace CustomizedTrips.Controllers.Traveler
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,FirstName,LastName,Destination,DestinationDescription,Budget,DestinationDetails,PhoneNumber,email")] VacationRequest vacationRequest)
+        public async Task<IActionResult> Create([Bind("id,FirstName,LastName,Destination,Budget,DestinationDetails,PhoneNumber,email")] VacationRequest vacationRequest)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace CustomizedTrips.Controllers.Traveler
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,FirstName,LastName,Destination,DestinationDescription,Budget,DestinationDetails,PhoneNumber,email")] VacationRequest vacationRequest)
+        public async Task<IActionResult> Edit(int id, [Bind("id,FirstName,LastName,Destination,Budget,DestinationDetails,PhoneNumber,email")] VacationRequest vacationRequest)
         {
             if (id != vacationRequest.id)
             {
