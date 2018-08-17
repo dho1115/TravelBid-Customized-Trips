@@ -1,4 +1,33 @@
-﻿body {
+﻿
+.Banff {
+    background-image: url("../images/Banff.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.Iceland {
+    background-image: url("../images/Iceland.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+} 
+
+.Outdoor {
+    background-image: url("../images/OutdoorScene.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.Vegas {
+    background-image: url("../images/Bellagio.JPG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }

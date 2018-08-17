@@ -13,6 +13,11 @@ namespace CustomizedTrips.Controllers
         public IActionResult Index()
         {
             return View();
+        } 
+
+        public IActionResult Welcome()
+        {
+            return View();
         }
 
         public IActionResult About()
