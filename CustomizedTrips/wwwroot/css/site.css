@@ -11,6 +11,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.NewOrleans {
+    background-image: url("../images/NewOrleans.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 } 
 
 .Outdoor {
