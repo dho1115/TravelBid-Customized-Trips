@@ -1,0 +1,81 @@
+﻿@model IEnumerable<CustomizedTrips.Models.VacationSuggestions.VacationIdeas>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <!--<a asp-action="Create">Create New</a>-->
+</p>
+
+<h3>Select the area you're interested in</h3>
+<select>
+    <option value="" selected>ALL AREAS</option>
+    <option value="NorthAmerica">NORTH AMERICA</option>
+    <option value="Europe">EUROPE</option>
+    <option value="Asia">ASIA</option>    
+    <option value="Other">OTHER</option>
+</select>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImagePath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<img src="~/images/"
+<!--
+<body>
+    <div class="container">
+        @foreach (var item in Model)
+        {
+        <div class="row">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Description</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        }
+           
+    </div>
+</body>
+    -->

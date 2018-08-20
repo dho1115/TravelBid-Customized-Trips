@@ -2,70 +2,95 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<style type="text/css">
+    html {
+        height: 100%
+    }
 
-<h4>VacationRequest</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    body {
+        background-size: cover;
+    }
 
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" required/>
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
+    .vacationform {
+        border: 3px solid red;
+        border-radius: 30px;
+        background-color: antiquewhite;
+        padding-top: 3px;
+    }
+</style>
 
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" required/>
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
+<body class="NewOrleans" style="padding-top: 0px">    
+    <div class="container" style="margin-top: 1vw">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 vacationform">
+                <h3>Fill out the form to get started right on your Dream Destination!</h3>
+                <!--FORM START-->
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group">
-                <label asp-for="Destination" class="control-label"></label>
-                <input asp-for="Destination" class="form-control" required/>
-                <span asp-validation-for="Destination" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <label asp-for="Budget" class="control-label"></label>
-                <input asp-for="Budget" class="form-control" />
-                <span asp-validation-for="Budget" class="text-danger"></span>
-            </div>
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control" required />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group">
-                <label asp-for="DestinationDetails" class="control-label"></label>
-                <span asp-validation-for="DestinationDetails" class="text-danger"></span>
-                <textarea asp-for="DestinationDetails" class="form-control">
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" required />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Destination" class="control-label"></label>
+                        <input asp-for="Destination" class="form-control" required />
+                        <span asp-validation-for="Destination" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Budget" class="control-label"></label>
+                        <input asp-for="Budget" class="form-control" />
+                        <span asp-validation-for="Budget" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="DestinationDetails" class="control-label"></label>
+                        <span asp-validation-for="DestinationDetails" class="text-danger"></span>
+                        <textarea asp-for="DestinationDetails" class="form-control">
 
                 </textarea>
-            </div>
+                    </div>
 
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group">
-                <label asp-for="email" class="control-label"></label>
-                <input asp-for="email" class="form-control" required/>
-                <span asp-validation-for="email" class="text-danger"></span>
-            </div>
+                    <div class="form-group">
+                        <label asp-for="email" class="control-label"></label>
+                        <input asp-for="email" class="form-control" required />
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-default" />
+                    </div>
+                </form>
+                <!--FORM END-->
             </div>
-
-        </form>
+            <div class="col-sm-3"></div>
+        </div>
+        <!--
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+            -->
     </div>
-</div>
+</body>
+           
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 

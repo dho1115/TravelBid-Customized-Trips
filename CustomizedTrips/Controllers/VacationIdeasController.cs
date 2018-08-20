@@ -6,26 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CustomizedTrips.Data;
-using CustomizedTrips.Models.Traveler;
+using CustomizedTrips.Models.VacationSuggestions;
 
-namespace CustomizedTrips.Controllers.Traveler
+namespace CustomizedTrips.Controllers
 {
-    public class VacationFormController : Controller
+    public class VacationIdeasController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public VacationFormController(ApplicationDbContext context)
+        public VacationIdeasController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: VacationForm
+        // GET: VacationIdeas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.VacationRequest.ToListAsync());
+            return View(await _context.VacationIdeas.ToListAsync());
         }
 
-        // GET: VacationForm/Details/5
+        // GET: VacationIdeas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,42 @@ namespace CustomizedTrips.Controllers.Traveler
                 return NotFound();
             }
 
-            var vacationRequest = await _context.VacationRequest
-                .SingleOrDefaultAsync(m => m.id == id);
-            if (vacationRequest == null)
+            var vacationIdeas = await _context.VacationIdeas
+                .SingleOrDefaultAsync(m => m.ID == id);
+            if (vacationIdeas == null)
             {
                 return NotFound();
             }
 
-            return View(vacationRequest);
+            return View(vacationIdeas);
         }
 
-        // GET: VacationForm/Create
-        public IActionResult Create()        
+        // GET: VacationIdeas/Create
+        public IActionResult Create() //This initial Create sends us to the FORM in the view.
         {
             return View();
         }
 
-        // POST: VacationForm/Create
+        // POST: VacationIdeas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,FirstName,LastName,Destination,Budget,DestinationDetails,PhoneNumber,email")] VacationRequest vacationRequest)        
+
+        //This SECOND Create takes the information from the FORM and adds it to the database using the _context.Add and _context.SaveChanges.
+
+        public async Task<IActionResult> Create([Bind("ID,Name,ImagePath,Description")] VacationIdeas vacationIdeas)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(vacationRequest);
+                _context.Add(vacationIdeas); //THIS is where the vacation ideas are added.
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(vacationRequest);
+            return View(vacationIdeas);
         }
 
-        // GET: VacationForm/Edit/5
+        // GET: VacationIdeas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +76,22 @@ namespace CustomizedTrips.Controllers.Traveler
                 return NotFound();
             }
 
-            var vacationRequest = await _context.VacationRequest.SingleOrDefaultAsync(m => m.id == id);
-            if (vacationRequest == null)
+            var vacationIdeas = await _context.VacationIdeas.SingleOrDefaultAsync(m => m.ID == id);
+            if (vacationIdeas == null)
             {
                 return NotFound();
             }
-            return View(vacationRequest);
+            return View(vacationIdeas);
         }
 
-        // POST: VacationForm/Edit/5
+        // POST: VacationIdeas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,FirstName,LastName,Destination,Budget,DestinationDetails,PhoneNumber,email")] VacationRequest vacationRequest)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,ImagePath,Description")] VacationIdeas vacationIdeas)
         {
-            if (id != vacationRequest.id)
+            if (id != vacationIdeas.ID)
             {
                 return NotFound();
             }
@@ -97,12 +100,12 @@ namespace CustomizedTrips.Controllers.Traveler
             {
                 try
                 {
-                    _context.Update(vacationRequest);
+                    _context.Update(vacationIdeas);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!VacationRequestExists(vacationRequest.id))
+                    if (!VacationIdeasExists(vacationIdeas.ID))
                     {
                         return NotFound();
                     }
@@ -113,10 +116,10 @@ namespace CustomizedTrips.Controllers.Traveler
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(vacationRequest);
+            return View(vacationIdeas);
         }
 
-        // GET: VacationForm/Delete/5
+        // GET: VacationIdeas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +127,30 @@ namespace CustomizedTrips.Controllers.Traveler
                 return NotFound();
             }
 
-            var vacationRequest = await _context.VacationRequest
-                .SingleOrDefaultAsync(m => m.id == id);
-            if (vacationRequest == null)
+            var vacationIdeas = await _context.VacationIdeas
+                .SingleOrDefaultAsync(m => m.ID == id);
+            if (vacationIdeas == null)
             {
                 return NotFound();
             }
 
-            return View(vacationRequest);
+            return View(vacationIdeas);
         }
 
-        // POST: VacationForm/Delete/5
+        // POST: VacationIdeas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var vacationRequest = await _context.VacationRequest.SingleOrDefaultAsync(m => m.id == id);
-            _context.VacationRequest.Remove(vacationRequest);
+            var vacationIdeas = await _context.VacationIdeas.SingleOrDefaultAsync(m => m.ID == id);
+            _context.VacationIdeas.Remove(vacationIdeas);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool VacationRequestExists(int id)
+        private bool VacationIdeasExists(int id)
         {
-            return _context.VacationRequest.Any(e => e.id == id);
+            return _context.VacationIdeas.Any(e => e.ID == id);
         }
     }
 }
