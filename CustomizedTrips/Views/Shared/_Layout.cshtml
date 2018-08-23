@@ -55,9 +55,10 @@
 <body class="NewOrleans" style="background-size: cover">
     <div class="container Banff header" style="border-bottom: 1px solid ivory;">
         <div class="row header_top">
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><strong class="title">TRAVEL-BID</strong></a><br />
+            <div><a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><strong class="title" style="text-align: center;">TRAVEL-BID</strong></a><br /></div>            
+            <div><h1><i>America's Premiere Travel Matchmaking Service!</i></h1></div>
         </div>
-
+        
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -78,7 +79,11 @@
         </div>
     </div>
 
-    <div class="container ParisII" style="width: 100%">
+    <div class="container" style="width: 100%">
+
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6" style="border: 1px solid red"></div>
+        <div class="col-sm-3"></div>
         @RenderBody()
 
         <footer>

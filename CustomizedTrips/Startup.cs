@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using CustomizedTrips.Data;
 using CustomizedTrips.Models;
 using CustomizedTrips.Services;
+using Braintree;
 
 namespace CustomizedTrips
 {
@@ -29,14 +30,30 @@ namespace CustomizedTrips
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            // Add application services.
-            services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddMvc();
+
+            // Add application services. //CHANGES
+            //services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IEmailSender>((IServiceProvider) => new EmailSender(Configuration.GetValue<string>("SendGrid.ApiKey")));
+
+            
+            services.AddTransient<Braintree.IBraintreeGateway>((iServiceProvider) => new Braintree.BraintreeGateway(
+                Configuration.GetValue<string>("Braintree.Environment"),
+                Configuration.GetValue<string>("Braintree.MerchantId"),
+                Configuration.GetValue<string>("Braintree.PublicKey"),
+                Configuration.GetValue<string>("Braintree.PrivateKey")
+                )); 
+
+
+            //services.AddMvc();
+            services.AddMvc(options => {
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +75,7 @@ namespace CustomizedTrips
             app.UseAuthentication();
 
             app.UseMvc(routes =>
-            {
+            {          
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

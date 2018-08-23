@@ -1,0 +1,60 @@
+﻿
+
+@model CustomizedTrips.Models.Traveler.VacationRequest
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body style="background-color: antiquewhite">
+
+<h1 style="color: white">Traveler Login Page</h1>
+
+<div class="container" style="background-color: antiquewhite; border-radius: 30px; border: 7px solid hotpink">
+
+    <h5><a asp-controller="TravelAgentProfile" asp-action="index">Your Bid Results</a></h5>
+
+    <h1 text-align: center">PERSONAL INFORMATION</h1>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>FIRST NAME:</h3>
+            <h3>LAST NAME:</h3>
+            <h3>E-MAIL:</h3>
+            <h3>PHONE NUMBER:</h3>
+        </div>
+        <div class="col-sm-6">
+            <h3>@Model.FirstName</h3>
+            <h3>@Model.LastName</h3>
+            <h3>@Model.email</h3>
+            <h3>@Model.PhoneNumber</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>DESTINATION:</h3>
+            <h3>BUDGET:</h3>
+            <h3>DESTINATION DETAILS:</h3>
+        </div>
+        <div class="col-sm-6">
+            <h3>@Model.Destination</h3>
+            <h3>@Model.Budget</h3>
+            <h3>@Model.DestinationDetails</h3>
+        </div>
+    </div>
+</div>
+    <style type="text/css">
+        .personalinfo {
+            background-color: antiquewhite;
+            border-radius: 30px;
+            border: 7px solid hotpink;
+        } 
+
+        .bids {
+            background-color: antiquewhite;
+        }
+    </style>
+</body>
+

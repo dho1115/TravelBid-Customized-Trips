@@ -54,12 +54,28 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FavoriteDestinations)
             </td>
+           
             <td>
+                            <!--
                 <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>-->
+
                 <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<style type="text/css">
+    tr, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        background-color: ivory;
+    }
+
+    td, th {
+        font-size: 25px;
+    }
+</style>

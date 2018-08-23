@@ -52,6 +52,7 @@ namespace CustomizedTrips.Controllers.Traveler
         // POST: VacationForm/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id,FirstName,LastName,Destination,Budget,DestinationDetails,PhoneNumber,email")] VacationRequest vacationRequest)        
@@ -60,9 +61,12 @@ namespace CustomizedTrips.Controllers.Traveler
             {
                 _context.Add(vacationRequest);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                return RedirectToAction("Index", "TravelerHome");
+                //return RedirectToAction(nameof(Index));
             }
-            return View(vacationRequest);
+
+            return View(vacationRequest);            
         }
 
         // GET: VacationForm/Edit/5

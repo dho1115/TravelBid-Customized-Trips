@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CustomizedTrips.Models.TravelAgents.Bid>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<body>
+
+<div style="background-color: antiquewhite">
+    <h2>Index</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+</div>
+
+<div class="container" style="background-color: antiquewhite">   
+        
+@foreach (var item in Model)
+        {
+     
+                        <h1 style="color: black">DATE ENTERED: @Html.DisplayFor(modelItem => item.DateEntered)</h1>
+          
+                        <h1>AGENT FIRST NAME: @Html.DisplayFor(modelItem => item.agent.FirstName)</h1>
+            
+                        <h1>AGENT LAST NAME: @Html.DisplayFor(modelItem => item.agent.LastName)</h1>
+            
+                        <h3>Email: @Html.DisplayFor(modelItem => item.agent.email)</h3>
+           
+                        <h3>Years Experience: @Html.DisplayFor(modelItem => item.agent.YearsExperience)</h3>
+            
+                        <h3>Bid: @Html.DisplayFor(modelItem => item.BidAmount)</h3>                                   
+                        <textarea>@Html.DisplayFor(modelItem => item.comments)</textarea>
+            
+                    <div>
+                        <!--
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a> | -->
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    </div>
+        
+        } 
+</div>
+
+
+</body>

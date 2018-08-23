@@ -44,14 +44,16 @@ namespace CustomizedTrips.Controllers
         }
 
         // GET: VacationIdeas/Create
+
         public IActionResult Create() //This initial Create sends us to the FORM in the view.
-        {
+        {            
             return View();
         }
 
         // POST: VacationIdeas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
 
@@ -63,8 +65,10 @@ namespace CustomizedTrips.Controllers
             {
                 _context.Add(vacationIdeas); //THIS is where the vacation ideas are added.
                 await _context.SaveChangesAsync();
+                
                 return RedirectToAction(nameof(Index));
             }
+
             return View(vacationIdeas);
         }
 

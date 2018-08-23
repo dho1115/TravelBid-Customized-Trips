@@ -5,77 +5,155 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    <!--<a asp-action="Create">Create New</a>-->
-</p>
-
-<h3>Select the area you're interested in</h3>
-<select>
-    <option value="" selected>ALL AREAS</option>
-    <option value="NorthAmerica">NORTH AMERICA</option>
-    <option value="Europe">EUROPE</option>
-    <option value="Asia">ASIA</option>    
-    <option value="Other">OTHER</option>
-</select>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImagePath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ImagePath)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<img src="~/images/"
-<!--
 <body>
-    <div class="container">
-        @foreach (var item in Model)
-        {
+    <h2>Looking for a place to go? Here are some fun ideas!!!</h2>
+
+    <p>
+        <!--<a asp-action="Create">Create New</a>-->
+    </p> 
+
+    <a asp-area="" asp-controller="Home" asp-action="Welcome"><span>Back To Home</span></a>
+
+    <select>
+        <option value="" selected>ALL AREAS</option>
+        <option value="NorthAmerica">NORTH AMERICA</option>
+        <option value="Europe">EUROPE</option>
+        <option value="Asia">ASIA</option>
+        <option value="Other">OTHER</option>
+    </select>
+    <!--
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImagePath)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImagePath)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+       -->
+    <div class="container" >
+        <!--Start Row 1-->
         <div class="row">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">@item.Name</h5>
-                    <p class="card-text">@item.Description</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+            <!--Start Image 1-->
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/images/NewOrleans.jpg" alt="New Orleans" style="height: 198px; width: 286px">
+                    <div class="card-body">
+                        <h5 class="card-title">New Orleans</h5>
+                        <p class="card-text">Mardi Gras, Bourbon street and Crawfish Entoufee awaits you in this beautiful vacation spot!</p>
+                        <a asp-controller = "VacationForm" asp-action="Create" class="btn btn-primary">Visit New Orleans!</a>
+                    </div>
                 </div>
             </div>
+            <!--End Image 1-->
+
+            <!--Start Image 2-->
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/images/RenoArch.jpg" alt="Reno" style="height: 198px; width: 286px">
+                    <div class="card-body">
+                        <h5 class="card-title">Reno/Tahoe</h5>
+                        <p class="card-text">Lake Tahoe, historic Virginia City and more await you here in Reno/Lake Tahoe!</p>
+                        <a asp-controller = "VacationForm" asp-action="Create" class="btn btn-primary">Visit Reno!</a>
+                    </div>
+                </div>
+            </div>
+            <!--End Image 2-->
+
+            <!--Start Image 3-->
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/images/Bellagio.JPG" alt="Card image cap" style="height: 198px; width: 286px">
+                    <div class="card-body">
+                        <h5 class="card-title">Las Vegas,NV</h5>
+                        <p class="card-text">Voted #1 destination in American for outdoor and nightlife!</p>
+                        <a asp-controller = "VacationForm" asp-action="Create" class="btn btn-primary">Visit Vegas!</a>
+                    </div>
+                </div>
+            </div>
+            <!--End Image 3-->
         </div>
+        <!--End Row 1-->
+
+        <!--Start Row 2-->
+        <div class="row">
+            <!--Start Image 1-->
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/images/Banff.jpg" alt="Banff" style="height: 198px; width: 286px">
+                    <div class="card-body">
+                        <h5 class="card-title">Banff, Albert,CA</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a asp-controller = "VacationForm" asp-action="Create" class="btn btn-primary">Visit Banff!</a>
+                    </div>
+                </div>
+            </div>
+            <!--End Image 1-->
+            <!--Start Image 2-->
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/images/HongKong.jpg" alt="Card image cap" style="height: 198px; width: 286px">
+                    <div class="card-body">
+                        <h5 class="card-title">Hong Kong</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Visit Hong Kong!</a>
+                    </div>
+                </div>
+            </div>
+            <!--End Image 2-->
+            <!--Start Image 3-->
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/images/Italy.jpg" alt="Italy" style="height: 198px; width: 286px">
+                    <div class="card-body">
+                        <h5 class="card-title">Italy</h5>
+                        <p class="card-text">Explore the Florence Cathedral, enjoy fine dining and more!</p>
+                        <a href="#" class="btn btn-primary">Visit Italy!</a>
+                    </div>
+                </div>
+            </div>
+            <!--End Image 3-->
+        </div>
+        <!--End Row 2-->
+    </div> 
+
+    <style type="text/css">
+        .col-sm-4 {
+            padding: 3px;
+        } 
+
+        .card {
+            background-color: antiquewhite;
         }
-           
-    </div>
+    </style>
 </body>
-    -->
+   
