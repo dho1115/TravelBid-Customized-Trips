@@ -1,0 +1,64 @@
+﻿@model CustomizedTrips.Models.TravelAgents.AgentLoggedIn
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6" style="border: 1px solid black; border-radius: 15px; background-color: ivory">
+
+                <h2>Create</h2>
+
+                <h4>AgentLoggedIn</h4>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="DateLogged" class="control-label"></label>
+                                <input asp-for="DateLogged" class="form-control" placeholder="@Model.DateLogged"/>
+                                <span asp-validation-for="DateLogged" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LoggedInName" class="control-label"></label>
+                                <input asp-for="LoggedInName" class="form-control" placeholder="@Model.LoggedInName"/>
+                                <span asp-validation-for="LoggedInName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LoggedInPhone" class="control-label"></label>
+                                <input asp-for="LoggedInPhone" class="form-control" placeholder="@Model.LoggedInPhone"/>
+                                <span asp-validation-for="LoggedInPhone" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LoggedInEmail" class="control-label"></label>
+                                <input asp-for="LoggedInEmail" class="form-control" placeholder="@Model.LoggedInEmail" />
+                                <span asp-validation-for="LoggedInEmail" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div>
+                    <a asp-action="Index">Back to List</a>
+                </div>
+
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+    </div>   
+
+</body>
+
+

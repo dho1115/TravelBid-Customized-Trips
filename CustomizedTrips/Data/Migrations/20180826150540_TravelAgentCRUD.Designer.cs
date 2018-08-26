@@ -11,9 +11,10 @@ using System;
 namespace CustomizedTrips.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180826150540_TravelAgentCRUD")]
+    partial class TravelAgentCRUD
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,24 +70,6 @@ namespace CustomizedTrips.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("CustomizedTrips.Models.TravelAgents.AgentLoggedIn", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime?>("DateLogged");
-
-                    b.Property<string>("LoggedInEmail");
-
-                    b.Property<string>("LoggedInName");
-
-                    b.Property<int?>("LoggedInPhone");
-
-                    b.HasKey("id");
-
-                    b.ToTable("AgentLoggedIn");
                 });
 
             modelBuilder.Entity("CustomizedTrips.Models.TravelAgents.Bid", b =>

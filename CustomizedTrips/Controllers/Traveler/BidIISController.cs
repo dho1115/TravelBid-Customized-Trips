@@ -44,9 +44,16 @@ namespace CustomizedTrips.Controllers.Traveler
         }
 
         // GET: BidIIS/Create
-        public IActionResult Create()
+        public IActionResult Create() //Generates empty table for user to fill out.
         {
-            return View();
+            BidII NewBid = new BidII()
+            {
+                AgentName = _context.AgentLoggedIn.LastOrDefault().LoggedInName,
+                email = _context.AgentLoggedIn.LastOrDefault().LoggedInEmail,
+                phone = (int)_context.AgentLoggedIn.LastOrDefault().LoggedInPhone
+            }; 
+
+            return View(NewBid);
         }
 
         // POST: BidIIS/Create
@@ -55,7 +62,7 @@ namespace CustomizedTrips.Controllers.Traveler
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,AgentName,email,phone,bid,comments")] BidII bidII)
+        public async Task<IActionResult> Create([Bind("id,AgentName,email,phone,bid,comments")] BidII bidII)  //ADDS data from from to table.
         {
             if (ModelState.IsValid)
             {
@@ -132,8 +139,8 @@ namespace CustomizedTrips.Controllers.Traveler
                 return NotFound();
             }
 
-            return RedirectToAction("Index", "TravelerHome");
-            //return View(bidII);
+            //return RedirectToAction("Index", "TravelerHome");
+            return View(bidII);
         }
 
         // POST: BidIIS/Delete/5

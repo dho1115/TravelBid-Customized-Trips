@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CustomizedTrips.Models.TravelAgents.AgentLoggedIn>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container" style="background-color: ghostwhite; margin-top: 3px">
+
+    <h2>Index</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateLogged)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LoggedInName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LoggedInPhone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LoggedInEmail)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateLogged)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoggedInName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoggedInPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoggedInEmail)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

@@ -10,65 +10,63 @@ using CustomizedTrips.Models.TravelAgents;
 
 namespace CustomizedTrips.Controllers.TravelAgents
 {
-    public class TravelAgentProfileController : Controller
+    public class AgentLoggedInsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public TravelAgentProfileController(ApplicationDbContext context)
+        public AgentLoggedInsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: TravelAgentProfile
+        // GET: AgentLoggedIns
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TravelAgentInfo.ToListAsync());
+            return View(await _context.AgentLoggedIn.ToListAsync());
         }
 
-        // GET: TravelAgentProfile/Details/5
+        // GET: AgentLoggedIns/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
-                return Content("Agent Not Found.");
+                return NotFound();
             }
 
-            var travelAgentInfo = await _context.TravelAgentInfo
+            var agentLoggedIn = await _context.AgentLoggedIn
                 .SingleOrDefaultAsync(m => m.id == id);
-
-            if (travelAgentInfo == null)
+            if (agentLoggedIn == null)
             {
-                return Content("Agent Is Null.");
+                return NotFound();
             }
 
-            return View(travelAgentInfo);            
+            return View(agentLoggedIn);
         }
 
-        // GET: TravelAgentProfile/Create
+        // GET: AgentLoggedIns/Create
         public IActionResult Create()
         {
-            return View();
+            var LoggedInAgent = _context.AgentLoggedIn.LastOrDefault();
+            return View(LoggedInAgent);
         }
 
-        // POST: TravelAgentProfile/Create
+        // POST: AgentLoggedIns/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,FirstName,LastName,email,phoneNumber,YearsExperience,FavoriteDestinations,Password")] TravelAgentInfo travelAgentInfo)
+        public async Task<IActionResult> Create([Bind("id,DateLogged,LoggedInName,LoggedInPhone,LoggedInEmail")] AgentLoggedIn agentLoggedIn)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(travelAgentInfo);
+                _context.Add(agentLoggedIn);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));               
+                return RedirectToAction(nameof(Index));
             }
-
-            return View(travelAgentInfo);
+            return View(agentLoggedIn);
         }
 
-        // GET: TravelAgentProfile/Edit/5
+        // GET: AgentLoggedIns/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,23 +74,22 @@ namespace CustomizedTrips.Controllers.TravelAgents
                 return NotFound();
             }
 
-            var travelAgentInfo = await _context.TravelAgentInfo.SingleOrDefaultAsync(m => m.id == id);
-            if (travelAgentInfo == null)
+            var agentLoggedIn = await _context.AgentLoggedIn.SingleOrDefaultAsync(m => m.id == id);
+            if (agentLoggedIn == null)
             {
                 return NotFound();
             }
-            return View(travelAgentInfo);
+            return View(agentLoggedIn);
         }
 
-        // POST: TravelAgentProfile/Edit/5
+        // POST: AgentLoggedIns/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,FirstName,LastName,email,phoneNumber,YearsExperience,FavoriteDestinations")] TravelAgentInfo travelAgentInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("id,DateLogged,LoggedInName,LoggedInPhone,LoggedInEmail")] AgentLoggedIn agentLoggedIn)
         {
-            if (id != travelAgentInfo.id)
+            if (id != agentLoggedIn.id)
             {
                 return NotFound();
             }
@@ -101,12 +98,12 @@ namespace CustomizedTrips.Controllers.TravelAgents
             {
                 try
                 {
-                    _context.Update(travelAgentInfo);
+                    _context.Update(agentLoggedIn);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TravelAgentInfoExists(travelAgentInfo.id))
+                    if (!AgentLoggedInExists(agentLoggedIn.id))
                     {
                         return NotFound();
                     }
@@ -117,10 +114,10 @@ namespace CustomizedTrips.Controllers.TravelAgents
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(travelAgentInfo);
+            return View(agentLoggedIn);
         }
 
-        // GET: TravelAgentProfile/Delete/5
+        // GET: AgentLoggedIns/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -128,31 +125,30 @@ namespace CustomizedTrips.Controllers.TravelAgents
                 return NotFound();
             }
 
-            var travelAgentInfo = await _context.TravelAgentInfo
+            var agentLoggedIn = await _context.AgentLoggedIn
                 .SingleOrDefaultAsync(m => m.id == id);
-            if (travelAgentInfo == null)
+            if (agentLoggedIn == null)
             {
                 return NotFound();
             }
 
-            return View(travelAgentInfo);
+            return View(agentLoggedIn);
         }
 
-        // POST: TravelAgentProfile/Delete/5
+        // POST: AgentLoggedIns/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var travelAgentInfo = await _context.TravelAgentInfo.SingleOrDefaultAsync(m => m.id == id);
-            _context.TravelAgentInfo.Remove(travelAgentInfo);
+            var agentLoggedIn = await _context.AgentLoggedIn.SingleOrDefaultAsync(m => m.id == id);
+            _context.AgentLoggedIn.Remove(agentLoggedIn);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TravelAgentInfoExists(int id)
+        private bool AgentLoggedInExists(int id)
         {
-            return _context.TravelAgentInfo.Any(e => e.id == id);
-        }                
-
+            return _context.AgentLoggedIn.Any(e => e.id == id);
+        }
     }
 }

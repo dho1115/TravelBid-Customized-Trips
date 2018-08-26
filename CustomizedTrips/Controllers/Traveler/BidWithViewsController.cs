@@ -19,30 +19,30 @@ namespace CustomizedTrips.Controllers.Traveler
             _context = context;
         }
 
-        TravelAgentInfo agent1 = new TravelAgentInfo()
+        TravelAgentInfo2 agent1 = new TravelAgentInfo2()
         {
             FirstName = "Jay",
             LastName = "Smithe",
             email = "FarAwayJay@email.com",
-            YearsExperience = 7.ToString(),
+            YearsExperience = 7,
             FavoriteDestinations = "Colorado, Seattle, Amsterdam"
         };
 
-        TravelAgentInfo agent2 = new TravelAgentInfo()
+        TravelAgentInfo2 agent2 = new TravelAgentInfo2()
         {
             FirstName = "Marc",
             LastName = "Jones",
             email = "MJTravelAgency@email.com",
-            YearsExperience = 5.ToString(),
+            YearsExperience = 5,
             FavoriteDestinations = "New York, Seattle, Norway"
         };
 
-        TravelAgentInfo agent3 = new TravelAgentInfo()
+        TravelAgentInfo2 agent3 = new TravelAgentInfo2()
         {
             FirstName = "Charlie",
             LastName = "Rogers",
             email = "CharlieRogersTravel@email.com",
-            YearsExperience = 15.ToString(),
+            YearsExperience = 15,
             FavoriteDestinations = "Italy,Japan,Texas"
         };
         

@@ -76,6 +76,17 @@ namespace CustomizedTrips
 
             app.UseAuthentication();
 
+            /*
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    "BIDIIs",
+                    "BidIIS/Index/{FName?}/{LName?}/{id?}",
+                    new { controller = "BidIIS", action = "Index"}
+                    );
+            });
+            */
+
             app.UseMvc(routes =>
             {          
                 routes.MapRoute(

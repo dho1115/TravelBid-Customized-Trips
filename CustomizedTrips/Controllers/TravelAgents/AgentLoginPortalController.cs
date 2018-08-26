@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CustomizedTrips.Data;
+using CustomizedTrips.Models.TravelAgents;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CustomizedTrips.Controllers.TravelAgents
@@ -31,17 +32,30 @@ namespace CustomizedTrips.Controllers.TravelAgents
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AgentHomePage(string pswrd)
-        {
-            var PasswordCheck = from agents in _context.TravelAgentInfo
-                                where agents.Password == pswrd
-                                select agents;
+        {          
+            var PasswordCheck = _context.TravelAgentInfo.SingleOrDefault(i => i.Password == pswrd);
 
-            if(PasswordCheck.Count() == 0)
+            if(PasswordCheck == null)
             {
                 return RedirectToAction("Login", "AgentLoginPortal");
-            } 
+            }
 
-            return View(PasswordCheck);
+            else
+            {
+                AgentLoggedIn AddAgent = new AgentLoggedIn()
+                {
+                    DateLogged = DateTime.Now,
+                    LoggedInName = PasswordCheck.FirstName,
+                    LoggedInEmail = PasswordCheck.email,
+                    LoggedInPhone = (int)PasswordCheck.phoneNumber
+                };
+
+                _context.AgentLoggedIn.Add(AddAgent);
+                _context.SaveChanges();
+
+                return View(PasswordCheck);
+            }
+            
         }
     }
 }

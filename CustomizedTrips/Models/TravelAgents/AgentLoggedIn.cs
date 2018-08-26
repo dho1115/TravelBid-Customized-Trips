@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CustomizedTrips.Models.TravelAgents
 {
-    public class Bid
+    public class AgentLoggedIn
     {
         [Key]
         public int id { get; set; }
-        public DateTime? DateEntered { get; set; }
-        public TravelAgentInfo2 agent { get; set; }
-        public double BidAmount { get; set; }
-        public string comments { get; set; }
+        public DateTime? DateLogged { get; set; }
+        public string LoggedInName { get; set; }
+        public int? LoggedInPhone { get; set; }
+        public string LoggedInEmail { get; set; }
     }
 }

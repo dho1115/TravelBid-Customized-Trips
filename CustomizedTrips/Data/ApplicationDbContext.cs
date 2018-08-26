@@ -30,12 +30,14 @@ namespace CustomizedTrips.Data
 
         public DbSet<CustomizedTrips.Models.Traveler.VacationRequest> VacationRequest { get; set; }
 
-        public DbSet<CustomizedTrips.Models.TravelAgents.TravelAgentInfo> TravelAgentInfo { get; set; }
+        public DbSet<CustomizedTrips.Models.TravelAgents.TravelAgentInfo2> TravelAgentInfo { get; set; }
 
         public DbSet<CustomizedTrips.Models.VacationSuggestions.VacationIdeas> VacationIdeas { get; set; }
 
         public DbSet<CustomizedTrips.Models.TravelAgents.Bid> Bid { get; set; }
 
         public DbSet<CustomizedTrips.Models.TravelAgents.BidII> BidII { get; set; }
+
+        public DbSet<CustomizedTrips.Models.TravelAgents.AgentLoggedIn> AgentLoggedIn { get; set; }
     }
 }
