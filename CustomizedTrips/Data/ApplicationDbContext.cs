@@ -35,5 +35,7 @@ namespace CustomizedTrips.Data
         public DbSet<CustomizedTrips.Models.VacationSuggestions.VacationIdeas> VacationIdeas { get; set; }
 
         public DbSet<CustomizedTrips.Models.TravelAgents.Bid> Bid { get; set; }
+
+        public DbSet<CustomizedTrips.Models.TravelAgents.BidII> BidII { get; set; }
     }
 }

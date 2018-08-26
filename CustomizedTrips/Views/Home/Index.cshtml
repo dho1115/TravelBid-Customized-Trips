@@ -40,13 +40,26 @@
         }
 
         #carouselExampleFade {
-            border: 3px solid gray;
+            border: 3px solid gold;
         }
 
         .places {
             font-family: 'Great Vibes', cursive;
-            font-size: 50px;
+            font-size: 70px;
+            color: gold;
         }
+
+        #carouselExampleFade {
+            -webkit-animation-name: carousel;
+            animation-name: carousel;
+            animation-duration: 7s;
+        }
+
+        @@keyframes carousel {
+        0%   {opacity: 0};        
+        50%  {opacity: 0.5};
+        100% {opacity: 1.0};
+    }
 
     </style>   
 
@@ -65,7 +78,7 @@
                 </div>
                 <img class="d-block w-100" src="~/images/Banff.jpg" alt="Banff" style="width: 100%; height: 450px">
                 <div class="carousel-caption d-none d-md-block" style="margin-bottom: 15%">
-                    <h5>How would you like to escape to amazing, outdoor destinations such as this...</h5>
+                    <h3>How would you like to escape to amazing, outdoor destinations such as this...</h3>
                 </div>
             </div>
             <div class="carousel-item">
@@ -74,13 +87,13 @@
                 </div>
                 <img class="d-block w-100" src="~/images/CostaRicaRainForest.jpg" alt="Costa Rica" style="width: 100%; height: 450px">
                 <div class="carousel-caption d-none d-md-block" style="margin-bottom: 15%">
-                    <h5>Or this...</h5>
+                    <h3>Or this...</h3>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3 style="text-align: center" class="places">Hong Kong</h3>
-                    <h5 style="text-align: center">Voted one of the safest places to visit!</h5>
+                    <h3 style="text-align: center" class="places text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Hong Kong</h3>
+                    <h5 style="text-align: center; color: beige">Voted one of the safest places to visit!</h5>
                 </div>
                 <img class="d-block w-100" src="~/images/HongKong.jpg" alt="Hong Kong" style="width: 100%; height: 450px">
                 <div class="carousel-caption d-none d-md-block" style="margin-bottom: 15%">
@@ -98,7 +111,7 @@
             </div>
             <div class="carousel-item">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3 style="text-align: center; color: firebrick" class="places">Bellagio Hotel in the vibrant Las Vegas strip!</h3>
+                    <h3 style="text-align: center; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" class="places">Bellagio Hotel in the vibrant Las Vegas strip!</h3>
                 </div>
                 <img class="d-block w-100" src="~/images/Bellagio.jpg" alt="Hong Kong" style="width: 100%; height: 450px">
                 <div class="carousel-caption d-none d-md-block" style="margin-bottom: 15%">

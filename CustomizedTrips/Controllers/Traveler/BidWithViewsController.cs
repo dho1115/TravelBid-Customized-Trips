@@ -187,6 +187,7 @@ namespace CustomizedTrips.Controllers.Traveler
 
             var bid = await _context.Bid
                 .SingleOrDefaultAsync(m => m.id == id);
+
             if (bid == null)
             {
                 return NotFound();

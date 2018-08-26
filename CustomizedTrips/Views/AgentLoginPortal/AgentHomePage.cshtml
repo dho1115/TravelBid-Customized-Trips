@@ -1,0 +1,60 @@
+﻿
+
+@model IEnumerable<CustomizedTrips.Models.TravelAgents.TravelAgentInfo>
+
+@{
+    ViewData["Title"] = "AgentHomePage";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<head>
+    <style type="text/css">
+        .col-md-3 {
+            border-right: 1px solid black;
+            background-color: lightyellow;
+            padding-right: 5px;
+        }
+
+        a {
+            font-size: 18px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    @foreach (var GetID in Model)
+    {
+        <nav class="navbar" style="background-color: beige; margin-top: 15px">
+            <a asp-controller="VacationForm" asp-action="Index" asp-route-id="@GetID.id">TRAVEL QUEUE</a>
+            <a asp-controller="VacationForm" asp-action="Create">LOG OUT</a>
+        </nav>
+    }
+
+    <div class="container" style="background-color: beige;">
+        @foreach (var item in Model)
+        {
+            <h1 style="text-align: center;">Welcome, @item.FirstName!</h1>
+        }
+        <div class="row">
+            <div class="col-lg-5" style="border-right: 1px solid gray">
+
+                @foreach (var item in Model)
+                {
+                    <h3>E-mail: @item.email!</h3>
+                    <h3>Phone: @item.phoneNumber</h3>
+                    <h3>Years Exp.: @item.YearsExperience</h3>
+                    <h3>Favorite Destinations: @item.FavoriteDestinations</h3>
+                }
+
+            </div>
+            <div class="col-lg-7">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+

@@ -1,0 +1,56 @@
+﻿@model CustomizedTrips.Models.TravelAgents.BidII
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container" style="border: 1px solid black; border-radius: 30px; background-color: beige;">
+
+<h3>Accept Bid for @Model.AgentName?</h3>
+
+<div style="margin-bottom: 15px">
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AgentName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AgentName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.bid)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.bid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.comments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.comments)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Yes! Accept Bid" class="btn btn-default" />
+        <!--<a asp-action="Index">Back to List</a>-->
+    </form>
+</div>
+
+</div>

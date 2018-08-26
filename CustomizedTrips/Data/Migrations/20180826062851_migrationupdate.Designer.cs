@@ -11,9 +11,10 @@ using System;
 namespace CustomizedTrips.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180826062851_migrationupdate")]
+    partial class migrationupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,8 +155,6 @@ namespace CustomizedTrips.Data.Migrations
                     b.Property<int?>("PhoneNumber");
 
                     b.Property<string>("email");
-
-                    b.Property<string>("password");
 
                     b.HasKey("id");
 

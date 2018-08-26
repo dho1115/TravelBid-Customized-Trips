@@ -8,67 +8,65 @@ using Microsoft.EntityFrameworkCore;
 using CustomizedTrips.Data;
 using CustomizedTrips.Models.TravelAgents;
 
-namespace CustomizedTrips.Controllers.TravelAgents
+namespace CustomizedTrips.Controllers.Traveler
 {
-    public class TravelAgentProfileController : Controller
+    public class BidIISController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public TravelAgentProfileController(ApplicationDbContext context)
+        public BidIISController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: TravelAgentProfile
+        // GET: BidIIS
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TravelAgentInfo.ToListAsync());
+            return View(await _context.BidII.ToListAsync());
         }
 
-        // GET: TravelAgentProfile/Details/5
+        // GET: BidIIS/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
-                return Content("Agent Not Found.");
+                return NotFound();
             }
 
-            var travelAgentInfo = await _context.TravelAgentInfo
+            var bidII = await _context.BidII
                 .SingleOrDefaultAsync(m => m.id == id);
-
-            if (travelAgentInfo == null)
+            if (bidII == null)
             {
-                return Content("Agent Is Null.");
+                return NotFound();
             }
 
-            return View(travelAgentInfo);            
+            return View(bidII);
         }
 
-        // GET: TravelAgentProfile/Create
+        // GET: BidIIS/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: TravelAgentProfile/Create
+        // POST: BidIIS/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598. 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,FirstName,LastName,email,phoneNumber,YearsExperience,FavoriteDestinations,Password")] TravelAgentInfo travelAgentInfo)
+        public async Task<IActionResult> Create([Bind("id,AgentName,email,phone,bid,comments")] BidII bidII)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(travelAgentInfo);
+                _context.Add(bidII);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));               
+                return RedirectToAction(nameof(Index));
             }
-
-            return View(travelAgentInfo);
+            return View(bidII);
         }
 
-        // GET: TravelAgentProfile/Edit/5
+        // GET: BidIIS/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,23 +74,22 @@ namespace CustomizedTrips.Controllers.TravelAgents
                 return NotFound();
             }
 
-            var travelAgentInfo = await _context.TravelAgentInfo.SingleOrDefaultAsync(m => m.id == id);
-            if (travelAgentInfo == null)
+            var bidII = await _context.BidII.SingleOrDefaultAsync(m => m.id == id);
+            if (bidII == null)
             {
                 return NotFound();
             }
-            return View(travelAgentInfo);
+            return View(bidII);
         }
 
-        // POST: TravelAgentProfile/Edit/5
+        // POST: BidIIS/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,FirstName,LastName,email,phoneNumber,YearsExperience,FavoriteDestinations")] TravelAgentInfo travelAgentInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("id,AgentName,email,phone,bid,comments")] BidII bidII)
         {
-            if (id != travelAgentInfo.id)
+            if (id != bidII.id)
             {
                 return NotFound();
             }
@@ -101,12 +98,12 @@ namespace CustomizedTrips.Controllers.TravelAgents
             {
                 try
                 {
-                    _context.Update(travelAgentInfo);
+                    _context.Update(bidII);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TravelAgentInfoExists(travelAgentInfo.id))
+                    if (!BidIIExists(bidII.id))
                     {
                         return NotFound();
                     }
@@ -117,10 +114,10 @@ namespace CustomizedTrips.Controllers.TravelAgents
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(travelAgentInfo);
+            return View(bidII);
         }
 
-        // GET: TravelAgentProfile/Delete/5
+        // GET: BidIIS/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -128,31 +125,31 @@ namespace CustomizedTrips.Controllers.TravelAgents
                 return NotFound();
             }
 
-            var travelAgentInfo = await _context.TravelAgentInfo
+            var bidII = await _context.BidII
                 .SingleOrDefaultAsync(m => m.id == id);
-            if (travelAgentInfo == null)
+            if (bidII == null)
             {
                 return NotFound();
             }
 
-            return View(travelAgentInfo);
+            return RedirectToAction("Index", "TravelerHome");
+            //return View(bidII);
         }
 
-        // POST: TravelAgentProfile/Delete/5
+        // POST: BidIIS/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var travelAgentInfo = await _context.TravelAgentInfo.SingleOrDefaultAsync(m => m.id == id);
-            _context.TravelAgentInfo.Remove(travelAgentInfo);
+            var bidII = await _context.BidII.SingleOrDefaultAsync(m => m.id == id);
+            _context.BidII.Remove(bidII);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
-        private bool TravelAgentInfoExists(int id)
+                
+        private bool BidIIExists(int id)
         {
-            return _context.TravelAgentInfo.Any(e => e.id == id);
-        }                
-
+            return _context.BidII.Any(e => e.id == id);
+        }
     }
 }

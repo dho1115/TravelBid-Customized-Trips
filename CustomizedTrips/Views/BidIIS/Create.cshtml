@@ -1,0 +1,55 @@
+﻿@model CustomizedTrips.Models.TravelAgents.BidII
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="border: 1px solid black; background-color: beige">
+
+    <h2>Create Your Bid</h2>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="AgentName" class="control-label"></label>
+                    <input asp-for="AgentName" class="form-control" />
+                    <span asp-validation-for="AgentName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="email" class="control-label"></label>
+                    <input asp-for="email" class="form-control" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="phone" class="control-label"></label>
+                    <input asp-for="phone" class="form-control" />
+                    <span asp-validation-for="phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="bid" class="control-label"></label>
+                    <input asp-for="bid" class="form-control" />
+                    <span asp-validation-for="bid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="comments" class="control-label"></label>
+                    <input asp-for="comments" class="form-control" />
+                    <span asp-validation-for="comments" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+
+</div>

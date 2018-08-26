@@ -12,6 +12,7 @@ namespace CustomizedTrips.Models.TravelAgents
         public int id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Password { get; set; }
         public string email { get; set; }
         public int? phoneNumber { get; set; }
         public string YearsExperience { get; set; }

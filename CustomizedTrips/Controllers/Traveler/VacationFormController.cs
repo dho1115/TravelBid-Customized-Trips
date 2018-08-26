@@ -21,7 +21,7 @@ namespace CustomizedTrips.Controllers.Traveler
 
         // GET: VacationForm
         public async Task<IActionResult> Index()
-        {
+        {            
             return View(await _context.VacationRequest.ToListAsync());
         }
 
@@ -55,7 +55,7 @@ namespace CustomizedTrips.Controllers.Traveler
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,FirstName,LastName,Destination,Budget,DestinationDetails,PhoneNumber,email")] VacationRequest vacationRequest)        
+        public async Task<IActionResult> Create([Bind("id,FirstName,LastName,password,Destination,Budget,DestinationDetails,PhoneNumber,email")] VacationRequest vacationRequest)        
         {
             if (ModelState.IsValid)
             {
@@ -130,6 +130,7 @@ namespace CustomizedTrips.Controllers.Traveler
 
             var vacationRequest = await _context.VacationRequest
                 .SingleOrDefaultAsync(m => m.id == id);
+
             if (vacationRequest == null)
             {
                 return NotFound();

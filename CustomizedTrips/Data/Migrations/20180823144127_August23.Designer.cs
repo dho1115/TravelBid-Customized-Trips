@@ -11,9 +11,10 @@ using System;
 namespace CustomizedTrips.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180823144127_August23")]
+    partial class August23
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,27 +92,6 @@ namespace CustomizedTrips.Data.Migrations
                     b.ToTable("Bid");
                 });
 
-            modelBuilder.Entity("CustomizedTrips.Models.TravelAgents.BidII", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("AgentName")
-                        .IsRequired();
-
-                    b.Property<double>("bid");
-
-                    b.Property<string>("comments");
-
-                    b.Property<string>("email");
-
-                    b.Property<double>("phone");
-
-                    b.HasKey("id");
-
-                    b.ToTable("BidII");
-                });
-
             modelBuilder.Entity("CustomizedTrips.Models.TravelAgents.TravelAgentInfo", b =>
                 {
                     b.Property<int>("id")
@@ -122,8 +102,6 @@ namespace CustomizedTrips.Data.Migrations
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
-
-                    b.Property<string>("Password");
 
                     b.Property<string>("YearsExperience");
 
@@ -154,8 +132,6 @@ namespace CustomizedTrips.Data.Migrations
                     b.Property<int?>("PhoneNumber");
 
                     b.Property<string>("email");
-
-                    b.Property<string>("password");
 
                     b.HasKey("id");
 

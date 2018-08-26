@@ -4,9 +4,8 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Delete Traveler Profile</h2>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>VacationRequest</h4>
     <hr />
@@ -29,7 +28,7 @@
         <dd>
             @Html.DisplayFor(model => model.Destination)
         </dd>
-        
+
         <dt>
             @Html.DisplayNameFor(model => model.Budget)
         </dt>
@@ -55,8 +54,11 @@
             @Html.DisplayFor(model => model.email)
         </dd>
     </dl>
-    
+
+    <!--asp-action = "Delete" will take me back to "/localhost:44304/VacationForm" when I click the button with that customer profile removed. Taking out "asp-action = Delete" will make the page NOT go to the vacation profile.-->
+
     <form asp-action="Delete">
+        <!--NOTE: The type="hidden" hides the id. Remove it and you will be able to discover the id-->
         <input type="hidden" asp-for="id" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
         <a asp-action="Index">Back to List</a>
