@@ -5,57 +5,65 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
 
-<h4>TravelAgentInfo2</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+<body>
+
+    <div class="container" style="border: 1px solid black; background-color: peachpuff; margin-top: 5vw">
+
+        <h2>Create</h2>
+
+        <h4>TravelAgentInfo2</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FavoriteDestinations" class="control-label"></label>
+                        <input asp-for="FavoriteDestinations" class="form-control" />
+                        <span asp-validation-for="FavoriteDestinations" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="YearsExperience" class="control-label"></label>
+                        <input asp-for="YearsExperience" class="form-control" />
+                        <span asp-validation-for="YearsExperience" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="phoneNumber" class="control-label"></label>
+                        <input asp-for="phoneNumber" class="form-control" />
+                        <span asp-validation-for="phoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="email" class="control-label"></label>
+                        <input asp-for="email" class="form-control" />
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FavoriteDestinations" class="control-label"></label>
-                <input asp-for="FavoriteDestinations" class="form-control" />
-                <span asp-validation-for="FavoriteDestinations" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="YearsExperience" class="control-label"></label>
-                <input asp-for="YearsExperience" class="form-control" />
-                <span asp-validation-for="YearsExperience" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="phoneNumber" class="control-label"></label>
-                <input asp-for="phoneNumber" class="form-control" />
-                <span asp-validation-for="phoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="email" class="control-label"></label>
-                <input asp-for="email" class="form-control" />
-                <span asp-validation-for="email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+</body>

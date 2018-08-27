@@ -146,6 +146,7 @@ namespace CustomizedTrips.Controllers.Traveler
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var vacationRequest = await _context.VacationRequest.SingleOrDefaultAsync(m => m.id == id);
+
             _context.VacationRequest.Remove(vacationRequest);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

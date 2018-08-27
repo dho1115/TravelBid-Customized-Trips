@@ -19,9 +19,94 @@
     .vacationform {        
         background-color: antiquewhite;
     }
+
+    img {
+        border: 3px solid #ffefba;
+    }
+
+    #mainheader {
+        font-size: 5vw;
+        text-align: center;
+        color: red; 
+    } 
+
+    .imp {
+        color: red;
+    } 
+
+    a {
+        font-size: 30px; 
+        text-decoration: none;
+        text-align: center;
+        color: red;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
 </style>
-<body class="NewOrleans" style="padding-top: 0px">
-    <h1>Welcome To Travel-Bid!!!</h1>
+
+<body style="padding-top: 0px">   
+    
+    <div class="container" style="margin-top: 1vw">
+
+        <h1 id="mainheader">What's better than vacationing in amazing destinations such as these?"</h1>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/images/Italy.jpg" style="height: 200px; width: 400px" />
+            </div>
+            <div class="col-lg-4">
+                <img src="~/images/RenoArch.jpg" style="height: 200px; width: 400px" />
+            </div>
+            <div class="col-lg-4">
+                <img src="~/images/CostaRicaRainForest.jpg" style="height: 200px; width: 400px" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/images/Iceland.jpg" style="height: 200px; width: 400px" />
+            </div>
+            <div class="col-lg-4">
+                <img src="~/images/Vegas.jpg" style="height: 200px; width: 400px" />
+            </div>
+            <div class="col-lg-4">
+                <img src="~/images/NewOrleans.jpg" style="height: 200px; width: 400px" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/images/Banff.jpg" style="height: 200px; width: 400px" />
+            </div>
+            <div class="col-lg-4">
+                <img src="~/images/SouthBeach.jpg" style="height: 200px; width: 400px" />
+            </div>
+            <div class="col-lg-4">
+                <img src="~/images/NYC.jpg" style="height: 200px; width: 400px" />
+            </div>
+        </div>
+
+        <h2>Having world class travel agents competing to give you the best price!</h2>       
+        <ul>
+            <li><h2>YOU tell us <i>where</i> you want to go!</h2></li>
+            <li><h2>YOU tell us <i>when</i> you want to go!</h2></li>
+            <li><h2>YOU tell us <i>everything</i> you want to do there!</h2></li>
+        </ul>
+        <br />
+        <h2>AND MOST IMPORTANTLY...</h2>
+        <br />
+        <h1>YOU TELL US WHAT YOU WANT TO PAY!</h1>
+        <br />
+        <h2>While I could go on and on about why we are <span class="imp">America's Premier Travel Matchmaking Service</span>, I think it's probably best you see for yourself by giving us a try!</h2>
+
+        <a asp-controller="VacationForm" asp-action="Create">Click here to get started on your dream vacation!</a>
+    </div>
+
+
+    <!--
     <div class="container" style="background-color: antiquewhite">
         <div class="row">
             <div class="col-sm-3"></div>
@@ -79,6 +164,7 @@
             <div class="col-sm-3"></div>
         </div>
     </div>
+        -->
 </body>
 
 

@@ -70,7 +70,14 @@ namespace CustomizedTrips.Controllers.Traveler
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(bidII);
+            //return View(bidII);
+
+            return RedirectToAction("ThankYou", "BidIIS");
+        } 
+
+        public IActionResult ThankYou()
+        {
+            return View();
         }
 
         // GET: BidIIS/Edit/5
@@ -86,7 +93,8 @@ namespace CustomizedTrips.Controllers.Traveler
             {
                 return NotFound();
             }
-            return View(bidII);
+
+            return View(bidII);            
         }
 
         // POST: BidIIS/Edit/5
@@ -148,8 +156,17 @@ namespace CustomizedTrips.Controllers.Traveler
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var bidII = await _context.BidII.SingleOrDefaultAsync(m => m.id == id);
-            _context.BidII.Remove(bidII);
+            //var bidII = await _context.BidII.SingleOrDefaultAsync(m => m.id == id);
+            //_context.BidII.Remove(bidII);
+
+            var RemoveAllBids = from item in _context.BidII
+                                select item;
+
+            foreach (var row in RemoveAllBids)
+            {
+                _context.BidII.Remove(row);
+            }
+                       
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

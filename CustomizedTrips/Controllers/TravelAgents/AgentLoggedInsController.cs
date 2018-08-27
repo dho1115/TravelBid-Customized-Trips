@@ -55,7 +55,7 @@ namespace CustomizedTrips.Controllers.TravelAgents
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,DateLogged,LoggedInName,LoggedInPhone,LoggedInEmail")] AgentLoggedIn agentLoggedIn)
+        public async Task<IActionResult> Create([Bind("")] AgentLoggedIn agentLoggedIn)
         {
             if (ModelState.IsValid)
             {

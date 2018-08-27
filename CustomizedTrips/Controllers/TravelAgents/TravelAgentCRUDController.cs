@@ -62,7 +62,8 @@ namespace CustomizedTrips.Controllers.TravelAgents
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(travelAgentInfo2);
+            //return View(travelAgentInfo2);
+            return RedirectToAction("Thank You", "BidllS");
         }
 
         // GET: TravelAgentCRUD/Edit/5
