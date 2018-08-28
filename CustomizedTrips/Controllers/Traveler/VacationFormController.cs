@@ -63,8 +63,8 @@ namespace CustomizedTrips.Controllers.Traveler
                 _context.Add(vacationRequest);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index", "TravelerHome");
-                //return RedirectToAction(nameof(Index));
+                //return RedirectToAction("ThankYou", "BidIIS");
+                return RedirectToAction(nameof(Index));
             }
 
             return View(vacationRequest);            
@@ -155,6 +155,24 @@ namespace CustomizedTrips.Controllers.Traveler
         private bool VacationRequestExists(int id)
         {
             return _context.VacationRequest.Any(e => e.id == id);
+        } 
+
+        public IActionResult MemberCreate(int? id)
+        {
+            var MemberSearch = _context.VacationRequest.SingleOrDefault(i => i.id == id);
+
+            if(MemberSearch == null)
+            {
+                return Content("Member not found");
+            }
+
+            return View(MemberSearch);
+        } 
+        
+        public IActionResult MemberThankYou()
+        {
+            return View();
         }
+       
     }
 }

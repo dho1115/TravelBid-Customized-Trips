@@ -42,10 +42,11 @@
         }     
 
         span {
-            border: 1px solid ivory;
-            border-radius: 15px;
+            border: 1px solid ivory;            
             background-color: ivory;
             padding: 7px;
+            font-size: medium;
+            text-decoration: none;
         } 
 
         a:hover {
@@ -57,9 +58,10 @@
 
 <body style="background-color: #ffefba; background-size: cover; height: 100%;">
     <!--class="NewOrleans"-->
-    <div class="container Banff header" style="border-bottom: 1px solid ivory;">
+    <div class="container Banff header" style="border-bottom: 1px solid ivory; padding-top: 3vw;">
+        <h1 style="text-align: center;"><a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><strong class="title" style="text-align: center; color: gold">TRAVEL-BID</strong></a><br /></h1>
         <div class="row header_top">
-            <div><a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><strong class="title" style="text-align: center; color: gold">TRAVEL-BID</strong></a><br /></div>
+            <div></div>
             <div><h1><i>America's Premiere Travel Matchmaking Service!</i></h1></div>
         </div>
 
@@ -88,7 +90,7 @@
 
                 <li><a asp-area="" asp-controller="AgentLoginPortal" asp-action="Login"><span style="background-color: antiquewhite">Travel Agent Login</span></a></li>
 
-                <li><a asp-area="" asp-controller="TravelAgentCRUD" asp-action="Create" ><span style="background-color: antiquewhite">New Agent? Register</span></a></li>
+                <li><a asp-area="" asp-controller="TravelAgentCRUD" asp-action="Create"><span style="background-color: antiquewhite">New Agent? Register</span></a></li>
 
             </ul>
             @await Html.PartialAsync("_LoginPartial")

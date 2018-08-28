@@ -7,13 +7,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<body style="background-color: antiquewhite">
+<body style="background-color: antiquewhite; padding-bottom: 5vw;">
 
-<h1 style="color: white">Traveler Login Page</h1>
+<h1 style="color: red">Traveler Home Page</h1>
 
-<div class="container" style="background-color: antiquewhite; border-radius: 30px; border: 7px solid hotpink">
+<div class="container" style="background-color: antiquewhite; border-radius: 30px; border: 7px solid hotpink; margin-bottom: 5vw;">
 
-    <h5><a asp-controller="BidIIS" asp-action="index">Your Bid Results</a></h5>
+    <h3><a asp-controller="BidIIS" asp-action="index">Your Bid Results</a> | 
+    <a asp-controller="VacationForm" asp-action="MemberCreate" asp-route-id="@Model.id">Go on a Dream Vacation!</a> |
+    <a asp-controller="Home" asp-action="Welcome">Log Out</a></h3>
+    <hr style="color: black"/>
 
     <h1 text-align: center">PERSONAL INFORMATION</h1>
 

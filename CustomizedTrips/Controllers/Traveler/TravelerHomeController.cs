@@ -16,11 +16,20 @@ namespace CustomizedTrips.Controllers.Traveler
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string pswrd)
         {
-            var getFirst = _context.VacationRequest.LastOrDefault();
+            var PasswordVerification = _context.VacationRequest.SingleOrDefault(i => i.password == pswrd);
 
-            return View(getFirst);
+            if(PasswordVerification == null)
+            {
+                return RedirectToAction("Login", "TravlerLoginPortal");
+            }
+
+            else
+            {
+                return View(PasswordVerification);
+            }
+            
         }
     }
 }

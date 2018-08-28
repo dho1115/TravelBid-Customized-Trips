@@ -25,9 +25,9 @@ namespace CustomizedTrips.Controllers.Traveler
         public IActionResult Login()
         {
             return View();
-        } 
+        }
 
-        //[HttpPost]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult PasswordVerification(string pswrd)
         {
@@ -36,12 +36,12 @@ namespace CustomizedTrips.Controllers.Traveler
 
             if (PasswordCheck == null)
             {
-                return RedirectToAction("Login", "AgentLoginPortal");
+                return RedirectToAction("Login", "TravlerLoginPortal");
             }
 
             else
             {
-                return RedirectToAction("Index", "TravelerHome");
+                return RedirectToAction("Index", "TravelerHome", new { id=PasswordCheck.id });
             }
             
         }
