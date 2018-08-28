@@ -10,13 +10,12 @@
 
     <div class="container" style="border: 1px solid black; background-color: peachpuff; margin-top: 5vw">
 
-        <h2>Create</h2>
-
-        <h4>TravelAgentInfo2</h4>
+        <h2>Registration Form for new Travel Agent</h2>
+        
         <hr />
         <div class="row">
             <div class="col-md-4">
-                <form asp-action="Create">
+                <form asp-controller="BidIIS" asp-action="ThankYou">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="FirstName" class="control-label"></label>

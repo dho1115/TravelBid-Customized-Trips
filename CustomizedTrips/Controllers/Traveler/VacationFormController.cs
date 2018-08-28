@@ -63,8 +63,8 @@ namespace CustomizedTrips.Controllers.Traveler
                 _context.Add(vacationRequest);
                 await _context.SaveChangesAsync();
 
-                //return RedirectToAction("ThankYou", "BidIIS");
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("MemberThankYou", "VacationForm");
+                //return RedirectToAction(nameof(Index));
             }
 
             return View(vacationRequest);            
